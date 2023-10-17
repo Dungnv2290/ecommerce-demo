@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  cart-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        SERVICE: CartService
+        PORT: 8889
+    container_name: cart-service
+    ports:
+      - "8889:8889"
+
+  checkout-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        SERVICE: CheckoutService
+        PORT: 8812
+    container_name: checkout-service
+    ports:
+      - "8812:8812"
+
+  payment-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        SERVICE: PaymentService
+        PORT: 8810
+    container_name: payment-service
+    ports:
+      - "8810:8810"
+
+  product-catalog-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        SERVICE: ProductCatalogService
+        PORT: 8888
+    container_name: product-catalog-service
+    ports:
+      - "8888:8888"
+
+  shipping-service:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        SERVICE: ShippingService
+        PORT: 8811
+    container_name: shipping-service
+    ports:
+      - "8811:8811"

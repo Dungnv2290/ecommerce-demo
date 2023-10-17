@@ -1,0 +1,1 @@
+docker image rm cart-service; docker build --build-arg SERVICE=CartService --build-arg PORT=8889 -t cart-service . 
